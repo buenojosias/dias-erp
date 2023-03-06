@@ -18,6 +18,9 @@ class DatabaseSeeder extends Seeder
             SupplierSeeder::class,
             EmployeeSeeder::class,
             PartnerSeeder::class,
+            ProposalSeeder::class,
+            ServiceSeeder::class,
+            PurchaseSeeder::class,
         ]);
         // \App\Models\User::factory(10)->create();
 

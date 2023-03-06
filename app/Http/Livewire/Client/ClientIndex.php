@@ -10,6 +10,7 @@ class ClientIndex extends Component
     public function render()
     {
         $clients = Client::query()
+            ->withCount('services')
             ->orderBy('company_name', 'asc')
             ->paginate(10);
 

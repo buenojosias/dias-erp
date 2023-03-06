@@ -1,9 +1,9 @@
 <div>
     <x-slot name="header">
-        <h2>Clientes</h2>
+        <h2>Orçamentos</h2>
     </x-slot>
     <div class="main-actions">
-        <x-primary-button class="ml-3">Novo cliente</x-primary-button>
+        <x-primary-button class="ml-3">Novo orçamento</x-primary-button>
     </div>
     <div class="filters">
         FILTROS
@@ -14,24 +14,30 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th class="text-left">Nome</th>
-                            <th class="text-left">Contato</th>
-                            <th>Obras</th>
+                            <th class="text-left">Data</th>
+                            <th class="text-left">Cliente</th>
+                            <th class="text-left">Valor</th>
+                            <th class="text-left">Status</th>
                             <th class="relative py-3.5 px-4">
                                 <span class="sr-only">Ações</span>
                             </th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($clients as $client)
+                        @foreach ($proposals as $proposal)
                             <tr>
                                 <td>
                                     <a href="#">
-                                        {{ $client->company_name }}
+                                        {{ $proposal->date->format('d/m/Y') }}
                                     </a>
                                 </td>
-                                <td>aaa</td>
-                                <td class="text-center">{{ $client->services_count }}</td>
+                                <td>
+                                    <a href="#">
+                                        {{ $proposal->client->company_name }}
+                                    </a>
+                                </td>
+                                <td>R$ {{ $proposal->amount / 100 }}</td>
+                                <td>{{ $proposal->status }}</td>
                                 <td width="1%">
                                     <div class="actions">
                                         <button class="hover:text-red-500">
@@ -58,6 +64,6 @@
         </div>
     </div>
     <div class="pagination">
-        {{ $clients->links() }}
+        {{ $proposals->links() }}
     </div>
 </div>

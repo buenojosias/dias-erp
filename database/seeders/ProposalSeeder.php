@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Proposal;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -12,6 +13,6 @@ class ProposalSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        Proposal::factory(15)->create();
     }
 }

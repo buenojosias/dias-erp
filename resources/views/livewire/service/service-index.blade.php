@@ -1,9 +1,9 @@
 <div>
     <x-slot name="header">
-        <h2>Clientes</h2>
+        <h2>Obras</h2>
     </x-slot>
     <div class="main-actions">
-        <x-primary-button class="ml-3">Novo cliente</x-primary-button>
+        <x-primary-button class="ml-3">Nova obra</x-primary-button>
     </div>
     <div class="filters">
         FILTROS
@@ -14,24 +14,34 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th class="text-left">Nome</th>
-                            <th class="text-left">Contato</th>
-                            <th>Obras</th>
+                            <th class="text-left">Contrato</th>
+                            <th class="text-left">Cliente</th>
+                            <th class="text-left">Início</th>
+                            <th class="text-left">Prazo</th>
+                            <th class="text-left">Valor</th>
+                            <th class="text-left">Status</th>
                             <th class="relative py-3.5 px-4">
                                 <span class="sr-only">Ações</span>
                             </th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($clients as $client)
+                        @foreach ($services as $service)
                             <tr>
                                 <td>
-                                    <a href="#">
-                                        {{ $client->company_name }}
-                                    </a>
+                                    <a href="#">{{ $service->contract_number }}</a>
                                 </td>
-                                <td>aaa</td>
-                                <td class="text-center">{{ $client->services_count }}</td>
+                                <td>
+                                    <a href="#">{{ $service->client->company_name }}</a>
+                                </td>
+                                <td>
+                                    {{ $service->start_date->format('d/m/Y') }}
+                                </td>
+                                <td>
+                                    {{ $service->end_date->format('d/m/Y') }}
+                                </td>
+                                <td>R$ {{ $service->amount / 100 }}</td>
+                                <td>{{ $service->status }}</td>
                                 <td width="1%">
                                     <div class="actions">
                                         <button class="hover:text-red-500">
@@ -58,6 +68,6 @@
         </div>
     </div>
     <div class="pagination">
-        {{ $clients->links() }}
+        {{ $services->links() }}
     </div>
 </div>

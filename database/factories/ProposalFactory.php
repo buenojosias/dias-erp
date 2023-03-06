@@ -17,7 +17,11 @@ class ProposalFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'client_id' => rand(1, 10),
+            'date' => $this->faker->dateTimeBetween("-20 days", "now"),
+            'amount' => rand(100000, 4000000),
+            'status' => $this->faker->randomElement(['Aguardando','Em negociação','Aceito','Recusado']),
+            'note' => $this->faker->randomElement([null,$this->faker->realText(200, 1)]),
         ];
     }
 }

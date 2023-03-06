@@ -19,7 +19,7 @@ return new class extends Migration
             $table->text('products');
             $table->string('amount');
             $table->enum('payment_method', ['À vista','Parcelado']);
-            $table->text('note');
+            $table->text('note')->nullable();
             $table->timestamps();
         });
     }

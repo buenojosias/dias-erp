@@ -18,6 +18,9 @@
                     <x-nav-link :href="route('suppliers.index')" :active="request()->routeIs('suppliers.*')">Fornecedores</x-nav-link>
                     <x-nav-link :href="route('employees.index')" :active="request()->routeIs('employees.*')">Funcionários</x-nav-link>
                     <x-nav-link :href="route('partners.index')" :active="request()->routeIs('partners.*')">Prestadores de serviços</x-nav-link>
+                    <x-nav-link :href="route('proposals.index')" :active="request()->routeIs('proposals.*')">Orçamentos</x-nav-link>
+                    <x-nav-link :href="route('services.index')" :active="request()->routeIs('services.*')">Obras</x-nav-link>
+                    <x-nav-link :href="route('purchase.index')" :active="request()->routeIs('purchase.*')">Compras</x-nav-link>
                 </div>
             </div>
 
