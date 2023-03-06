@@ -1,3 +1,50 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+header {
+    @apply bg-white shadow;
+}
+header > div {
+    @apply max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-12;
+}
+header h2 {
+    @apply font-semibold text-xl text-gray-800 leading-tight;
+}
+main {
+    @apply max-w-7xl mx-auto sm:px-6 lg:px-8 py-6;
+}
+.main-actions {
+    @apply mb-4 mx-4 sm:mx-0 text-right;
+}
+.filters {
+    @apply py-1 flex justify-between px-4 border border-b-0 bg-white md:rounded-t-lg;
+}
+
+table.table {
+    @apply min-w-full divide-y divide-gray-200;
+}
+.table > thead {
+    @apply bg-gray-50 dark:bg-gray-800;
+}
+.table th {
+    @apply px-4 py-3.5 text-sm font-normal text-gray-500;
+}
+.table tbody {
+    @apply bg-white divide-y divide-gray-200;
+}
+.table td {
+    @apply px-4 py-4 text-sm text-gray-500 whitespace-nowrap;
+}
+.table td a {
+    @apply font-medium text-gray-800;
+}
+.table td .actions {
+    @apply flex items-center gap-x-4;
+}
+.table td button {
+    @apply text-gray-500 transition-colors duration-200 focus:outline-none;
+}
+.pagination {
+    @apply mt-4 mx-2;
+}
