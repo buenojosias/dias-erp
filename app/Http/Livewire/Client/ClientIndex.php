@@ -9,7 +9,10 @@ class ClientIndex extends Component
 {
     public function render()
     {
-        $clients = Client::query()->orderBy('company_name', 'asc')->paginate(10);
+        $clients = Client::query()
+            ->orderBy('company_name', 'asc')
+            ->paginate(10);
+
         return view('livewire.client.client-index', compact(['clients']));
     }
 }

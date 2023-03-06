@@ -21,28 +21,37 @@ main {
     @apply py-1 flex justify-between px-4 border border-b-0 bg-white md:rounded-t-lg;
 }
 
-table.table {
+.table-wraper {
+    @apply overflow-x-auto sm:-mx-6 lg:-mx-8;
+}
+.table-wraper > div {
+    @apply inline-block min-w-full align-middle md:px-6 lg:px-8;
+}
+.table-parent {
+    @apply overflow-hidden border md:rounded-b-lg;
+}
+table {
     @apply min-w-full divide-y divide-gray-200;
 }
-.table > thead {
+table > thead {
     @apply bg-gray-50 dark:bg-gray-800;
 }
-.table th {
+table th {
     @apply px-4 py-3.5 text-sm font-normal text-gray-500;
 }
-.table tbody {
+table tbody {
     @apply bg-white divide-y divide-gray-200;
 }
-.table td {
+table td {
     @apply px-4 py-4 text-sm text-gray-500 whitespace-nowrap;
 }
-.table td a {
+table td a {
     @apply font-medium text-gray-800;
 }
-.table td .actions {
+table td .actions {
     @apply flex items-center gap-x-4;
 }
-.table td button {
+table td button {
     @apply text-gray-500 transition-colors duration-200 focus:outline-none;
 }
 .pagination {

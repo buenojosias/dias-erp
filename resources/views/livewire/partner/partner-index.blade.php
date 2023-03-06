@@ -1,9 +1,9 @@
 <div>
     <x-slot name="header">
-        <h2>Clientes</h2>
+        <h2>Prestadores de serviços</h2>
     </x-slot>
     <div class="main-actions">
-        <x-primary-button class="ml-3">Novo cliente</x-primary-button>
+        <x-primary-button class="ml-3">Novo prestador</x-primary-button>
     </div>
     <div class="filters">
         FILTROS
@@ -15,23 +15,23 @@
                     <thead>
                         <tr>
                             <th class="text-left">Nome</th>
+                            <th class="text-left">Tipo</th>
                             <th class="text-left">Contato</th>
-                            <th>Obras</th>
                             <th class="relative py-3.5 px-4">
                                 <span class="sr-only">Ações</span>
                             </th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($clients as $client)
+                        @foreach ($partners as $partner)
                             <tr>
                                 <td>
                                     <a href="#">
-                                        {{ $client->company_name }}
+                                        {{ $partner->company_name }}
                                     </a>
                                 </td>
+                                <td>{{ $partner->person_type === 'PF' ? 'Pessoa Física' : 'Pessoa Jurídica' }}</td>
                                 <td>aaa</td>
-                                <td class="text-center">xxx</td>
                                 <td width="1%">
                                     <div class="actions">
                                         <button class="hover:text-red-500">
@@ -58,6 +58,6 @@
         </div>
     </div>
     <div class="pagination">
-        {{ $clients->links() }}
+        {{ $partners->links() }}
     </div>
 </div>
