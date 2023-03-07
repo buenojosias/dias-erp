@@ -1,14 +1,64 @@
 <div>
     <x-slot name="header">
-        <h2>Compras</h2>
+        <h2>Prestador de serviços: {{ $partner->company_name }}</h2>
     </x-slot>
     <div class="main-actions">
-        <x-primary-button>Nova compra</x-primary-button>
+        <x-primary-button>Novo pagamento</x-primary-button>
     </div>
-
+    <div class="card mb-6">
+        <div class="card-header">
+            <h3 class="card-title">Informações do prestador de serviços</h3>
+        </div>
+        <div class="card-body display">
+            <div class="sm:col-span-3">
+                <h4>{{ $partner->person_type === 'PF' ? 'Nome' : 'Razão social' }}</h4>
+                <h5>{{ $partner->company_name }}</h5>
+            </div>
+            <div class="sm:col-span-2">
+                <h4>{{ $partner->person_type === 'PJ' ? 'Nome fantasia' : '' }}</h4>
+                <h5>{{ $partner->fantasy_name }}</h5>
+            </div>
+            <div>
+                <h4>{{ $partner->person_type === 'PF' ? 'CPF' : 'CNPJ' }}</h4>
+                <h5>{{ $partner->document_number }}</h5>
+            </div>
+            <div class="sm:col-span-3">
+                <h4>Endereço</h4>
+                <h5>{{ $address->street_name }}, {{ $address->number }}</h5>
+            </div>
+            <div>
+                <h4>Complemento</h4>
+                <h5>{{ $address->complement }}</h5>
+            </div>
+            <div class="sm:col-span-2">
+                <h4>Bairro</h4>
+                <h5>{{ $address->district }}</h5>
+            </div>
+            <div class="sm:col-span-2">
+                <h4>Cidade/UF</h4>
+                <h5>{{ $address->city }}/{{ $address->state }}</h5>
+            </div>
+            <div class="sm:col-span-3">
+                <h4>Representante</h4>
+                <h5>{{ $contact->representative }}</h5>
+            </div>
+            <div class="sm:col-span-2">
+                <h4>Telefone</h4>
+                <h5>{{ $contact->phone }}</h5>
+            </div>
+            <div class="sm:col-span-2">
+                <h4>WhatsApp</h4>
+                <h5>{{ $contact->whatsapp }}</h5>
+            </div>
+            <div class="sm:col-span-2">
+                <h4>E-mail</h4>
+                <h5>{{ $contact->email }}</h5>
+            </div>
+        </div>
+    </div>
     <div class="card">
         <div class="card-header">
-            FILTROS
+            <h3 class="card-title">Pagamentos</h3>
         </div>
         <div class="card-body table-responsive">
             <table class="table">
@@ -16,32 +66,26 @@
                     <tr>
                         <th class="text-left">Data</th>
                         <th class="text-left">Obra</th>
-                        <th class="text-left">Cliente</th>
-                        <th class="text-left">Fornecedor</th>
                         <th class="text-left">Valor</th>
-                        <th class="text-left">Meio de pagamento</th>
                         <th class="relative py-3.5 px-4">
                             <span class="sr-only">Ações</span>
                         </th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($purchases as $purchase)
+                    @foreach ($payments as $payment)
                         <tr>
                             <td>
-                                <a href="{{ route('purchase.show', $purchase) }}">{{ $purchase->date->format('d/m/Y') }}</a>
+                                <a href="#">{{ $payment->date->format('d/m/Y') }}</a>
+                                {{-- <a href="{{ route('payments.show', $payment) }}">{{ $payment->date->format('d/m/Y') }}</a> --}}
                             </td>
                             <td>
-                                <a href="{{ route('services.show', $purchase->service) }}">{{ $purchase->service->contract_number }}</a>
+                                <a href="{{ route('services.show', $payment->service) }}">{{ $payment->service->contract_number }}</a>
                             </td>
                             <td>
-                                <a href="{{ route('clients.show', $purchase->service->client) }}">{{ $purchase->service->client->company_name }}</a>
+                                <a href="{{ route('clients.show', $payment->service->client) }}">{{ $payment->service->client->company_name }}</a>
                             </td>
-                            <td>
-                                {{ $purchase->supplier->company_name }}
-                            </td>
-                            <td>R$ {{ $purchase->amount / 100 }}</td>
-                            <td>{{ $purchase->payment_method }}</td>
+                            <td>R$ {{ $payment->amount / 100 }}</td>
                             <td width="1%">
                                 <div class="actions">
                                     <button class="hover:text-red-500">
@@ -66,7 +110,7 @@
             </table>
         </div>
         <div class="card-pagination">
-            {{ $purchases->links() }}
+            {{ $payments->links() }}
         </div>
     </div>
 </div>

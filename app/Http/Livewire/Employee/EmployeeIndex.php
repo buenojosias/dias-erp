@@ -10,6 +10,7 @@ class EmployeeIndex extends Component
     public function render()
     {
         $employees = Employee::query()
+            ->with('contact')
             ->orderBy('name', 'asc')
             ->paginate(10);
 

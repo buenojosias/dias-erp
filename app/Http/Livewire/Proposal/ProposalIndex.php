@@ -11,7 +11,7 @@ class ProposalIndex extends Component
     {
         $proposals = Proposal::query()
             ->with('client')
-            ->paginate();
+            ->paginate(10);
 
         return view('livewire.proposal.proposal-index', compact(['proposals']));
     }

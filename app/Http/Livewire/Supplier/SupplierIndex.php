@@ -10,6 +10,7 @@ class SupplierIndex extends Component
     public function render()
     {
         $suppliers = Supplier::query()
+            ->with('contact')
             ->orderBy('fantasy_name')
             ->paginate(10);
 

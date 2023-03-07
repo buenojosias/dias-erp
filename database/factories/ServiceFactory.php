@@ -18,6 +18,7 @@ class ServiceFactory extends Factory
     {
         return [
             'client_id' => rand(1, 10),
+            'title' => $this->faker->realText(80),
             'contract_number' => rand(100,999),
             'start_date' => $this->faker->dateTimeBetween("-60 days", "now"),
             'end_date' => $this->faker->dateTimeBetween("now", "+60 days"),

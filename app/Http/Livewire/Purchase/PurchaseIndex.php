@@ -11,7 +11,7 @@ class PurchaseIndex extends Component
     {
         $purchases = Purchase::query()
             ->with(['service.client','supplier'])
-            ->paginate();
+            ->paginate(10);
 
         return view('livewire.purchase.purchase-index', compact(['purchases']));
     }

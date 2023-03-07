@@ -28,7 +28,7 @@ class Employee extends Model
         return $this->morphOne(Address::class, 'addressable');
     }
 
-    public function contactable(): MorphOne
+    public function contact(): MorphOne
     {
         return $this->morphOne(Contact::class, 'contactable');
     }

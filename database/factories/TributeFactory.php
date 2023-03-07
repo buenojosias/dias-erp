@@ -17,7 +17,10 @@ class TributeFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'service_id' => rand(1, 5),
+            'title_id' => rand(1, 5),
+            'amount' => rand(1000, 50000),
+            'note' => $this->faker->randomElement([null,$this->faker->realText(200, 1)]),
         ];
     }
 }

@@ -11,7 +11,7 @@ class ServiceIndex extends Component
     {
         $services = Service::query()
             ->with('client')
-            ->paginate();
+            ->paginate(10);
 
         return view('livewire.service.service-index', compact(['services']));
     }

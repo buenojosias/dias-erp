@@ -1,13 +1,13 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
-use App\Http\Livewire\Client\{ClientIndex};
-use App\Http\Livewire\Employee\{EmployeeIndex};
-use App\Http\Livewire\Partner\{PartnerIndex};
-use App\Http\Livewire\Proposal\{ProposalIndex};
-use App\Http\Livewire\Purchase\{PurchaseIndex};
-use App\Http\Livewire\Service\{ServiceIndex};
-use App\Http\Livewire\Supplier\{SupplierIndex};
+use App\Http\Livewire\Client\{ClientIndex, ClientShow};
+use App\Http\Livewire\Employee\{EmployeeIndex, EmployeeShow};
+use App\Http\Livewire\Partner\{PartnerIndex, PartnerShow};
+use App\Http\Livewire\Proposal\{ProposalIndex, ProposalShow};
+use App\Http\Livewire\Purchase\{PurchaseIndex, PurchaseShow};
+use App\Http\Livewire\Service\{ServiceIndex, ServiceShow};
+use App\Http\Livewire\Supplier\{SupplierIndex, SupplierShow};
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,19 +31,25 @@ Route::get('/', function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('/clientes', ClientIndex::class)->name('clients.index');
+    Route::get('/clientes/{client}', ClientShow::class)->name('clients.show');
 
     Route::get('/fornecedores', SupplierIndex::class)->name('suppliers.index');
+    Route::get('/fornecedores/{supplier}', SupplierShow::class)->name('suppliers.show');
 
     Route::get('/funcionarios', EmployeeIndex::class)->name('employees.index');
+    Route::get('/funcionarios/{employee}', EmployeeShow::class)->name('employees.show');
 
     Route::get('/prestadores', PartnerIndex::class)->name('partners.index');
+    Route::get('/prestadores/{partner}', PartnerShow::class)->name('partners.show');
 
     Route::get('/propostas', ProposalIndex::class)->name('proposals.index');
+    Route::get('/propostas/{proposal}', ProposalShow::class)->name('proposals.show');
 
     Route::get('/obras', ServiceIndex::class)->name('services.index');
+    Route::get('/obras/{service}', ServiceShow::class)->name('services.show');
 
     Route::get('/compras', PurchaseIndex::class)->name('purchase.index');
-
+    Route::get('/compras/{purchase}', PurchaseShow::class)->name('purchase.show');
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

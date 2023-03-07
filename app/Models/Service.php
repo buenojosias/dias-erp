@@ -13,6 +13,7 @@ class Service extends Model
 
     protected $fillable = [
         'client_id',
+        'title',
         'contract_number',
         'start_date',
         'end_date',
@@ -51,6 +52,6 @@ class Service extends Model
 
     public function tributes(): HasMany
     {
-        return $this->hasMany(Tributes::class);
+        return $this->hasMany(Tribute::class);
     }
 }

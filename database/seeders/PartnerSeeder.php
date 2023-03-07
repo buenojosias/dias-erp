@@ -13,6 +13,6 @@ class PartnerSeeder extends Seeder
      */
     public function run(): void
     {
-        Partner::factory(10)->create();
+        Partner::factory(10)->hasAddress()->hasContact()->hasPayments(rand(1, 10))->create();
     }
 }

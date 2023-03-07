@@ -10,6 +10,7 @@ class PartnerIndex extends Component
     public function render()
     {
         $partners = Partner::query()
+            ->with('contact')
             ->orderBy('company_name', 'asc')
             ->paginate(10);
 
