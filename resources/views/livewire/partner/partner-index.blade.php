@@ -9,7 +9,7 @@
         <div class="card-header">
             FILTROS
         </div>
-        <div class="card-body table-respondive">
+        <div class="card-body table-responsive">
             <table class="table">
                 <thead>
                     <tr>

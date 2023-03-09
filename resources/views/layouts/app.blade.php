@@ -15,7 +15,7 @@
 
 <body x-data="{ showsidebar: false, usermenu: false }" class="bg-gray-200 antialiased">
     @include('layouts.navstack')
-    <div class="flex overflow-hidden pt-12">
+    <div class="flex overflow-hidden pt-14 sm:pt-12">
         @include('layouts.navigation')
         <div class="h-full w-full relative overflow-y-auto lg:ml-64">
             @if (isset($header))

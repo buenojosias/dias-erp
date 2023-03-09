@@ -19,7 +19,7 @@ class SupplierFactory extends Factory
         return [
             'company_name' => $this->faker->company(),
             'fantasy_name' => $this->faker->company(),
-            'cnpj' => $this->faker->randomNumber(),
+            'cnpj' => rand(00000000, 99999999).'0001'.rand(00, 99),
         ];
     }
 }

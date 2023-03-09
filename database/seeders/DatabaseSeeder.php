@@ -21,10 +21,11 @@ class DatabaseSeeder extends Seeder
             PartnerSeeder::class,
             ProposalSeeder::class,
             PurchaseSeeder::class,
+            InstallmentSeeder::class,
             ReceiptSeeder::class,
             TributeTitleSeeder::class,
             TributeSeeder::class,
-            InstallmentSeeder::class,
+            TributeInstallmentSeeder::class,
         ]);
         // \App\Models\User::factory(10)->create();
 

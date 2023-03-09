@@ -3,11 +3,13 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Livewire\Client\{ClientIndex, ClientShow};
 use App\Http\Livewire\Employee\{EmployeeIndex, EmployeeShow};
+use App\Http\Livewire\Installment\{InstallmentIndex};
 use App\Http\Livewire\Partner\{PartnerIndex, PartnerShow};
 use App\Http\Livewire\Proposal\{ProposalIndex, ProposalShow};
 use App\Http\Livewire\Purchase\{PurchaseIndex, PurchaseShow};
 use App\Http\Livewire\Service\{ServiceIndex, ServiceShow, ServicePurchases, ServiceReceipts, ServicePayments, ServiceTributes};
 use App\Http\Livewire\Supplier\{SupplierIndex, SupplierShow};
+use App\Http\Livewire\Tribute\{TributeIndex, TributeShow};
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -54,6 +56,11 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/compras', PurchaseIndex::class)->name('purchases.index');
     Route::get('/compras/{purchase}', PurchaseShow::class)->name('purchases.show');
+
+    Route::get('/tributos', TributeIndex::class)->name('tributes.index');
+    Route::get('/tributos/{tribute}', TributeShow::class)->name('tributes.show');
+
+    Route::get('/parcelamentos', InstallmentIndex::class)->name('installments.index');
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

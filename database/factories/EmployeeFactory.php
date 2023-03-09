@@ -18,8 +18,8 @@ class EmployeeFactory extends Factory
     {
         return [
             'name' => $this->faker->name(),
-            'cpf' => $this->faker->randomNumber(),
-            'rg' => $this->faker->randomNumber(),
+            'cpf' => rand(00000000000, 99999999999),
+            'rg' => rand(0000000, 999999999),
             'birthday' => $this->faker->date($format = "Y-m-d", $max = "now"),
             'role' => $this->faker->randomElement(['Pintor','Pedreiro']),
         ];

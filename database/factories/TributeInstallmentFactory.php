@@ -16,11 +16,11 @@ class TributeInstallmentFactory extends Factory
      */
     public function definition(): array
     {
+        $status = $this->faker->randomElement(['Pendente','Pago','Atrasado']);
         return [
-            'amount' => rand(1500, 50000),
             'expiration_date' => $this->faker->dateTimeBetween("-30 days", "+30 dias"),
-            'payment_date' => $this->faker->randomElement([null,$this->faker->dateTimeBetween("-30 days", "+30 dias")]),
-            'status' => $this->faker->randomElement(['Pendente','Pago','Atrasado']),
+            'payment_date' => $status === 'Pago' ? $this->faker->dateTimeBetween("-30 days", "+30 dias") : null,
+            'status' => $status,
         ];
     }
 }

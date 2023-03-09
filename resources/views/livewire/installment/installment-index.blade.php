@@ -1,35 +1,40 @@
 <div>
     <x-slot name="header">
-        <h2>Clientes</h2>
+        <h2>Parcelas pendentes</h2>
     </x-slot>
-    <div class="main-actions">
-        <x-primary-button>Novo cliente</x-primary-button>
-    </div>
     <div class="card">
         <div class="card-header">
-            FILTROS
+            filtros
         </div>
         <div class="card-body table-responsive">
             <table class="table">
-                <thead>
-                    <tr>
-                        <th class="text-left">Nome</th>
-                        <th class="text-left">Contato</th>
-                        <th>Obras</th>
-                        <th class="relative py-3.5 px-4" width="1%">
-                            <span class="sr-only">Ações</span>
-                        </th>
-                    </tr>
-                </thead>
+                <thead class="text-left">
+                    <th>Vencimento</th>
+                    <th>Compra</th>
+                    <th>Obra</th>
+                    <th>Valor</th>
+                    <th>Status</th>
+                    <th class="relative py-3.5 px-4">
+                        <span class="sr-only">Ações</span>
+                    </th>
+            </thead>
                 <tbody>
-                    @foreach ($clients as $client)
+                    @foreach ($installments as $installment)
                         <tr>
+                            <td>{{ $installment->expiration_date->format('d/m/Y') }}</td>
                             <td>
-                                <a href="{{ route('clients.show', $client) }}">{{ $client->company_name }}</a>
+                                <a href="{{ route('purchases.show', $installment->purchase) }}">
+                                    {{ $installment->purchase->id }}
+                                </a>
                             </td>
-                            <td>{{ $client->contact->whatsapp ?? $client->contact->phone }}</td>
-                            <td class="text-center">{{ $client->services_count }}</td>
                             <td>
+                                <a href="{{ route('services.show', $installment->purchase->service) }}">
+                                    {{ $installment->purchase->service->contract_number }}
+                                </a>
+                            </td>
+                            <td>R$ {{ $installment->formated_amount }}</td>
+                            <td>{{ $installment->status }}</td>
+                            <td width="1%">
                                 <div class="actions">
                                     <button class="hover:text-red-500">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -53,7 +58,7 @@
             </table>
         </div>
         <div class="card-pagination">
-            {{ $clients->links() }}
+            {{ $installments->links() }}
         </div>
     </div>
 </div>

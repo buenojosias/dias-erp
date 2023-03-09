@@ -26,7 +26,7 @@ class InstallmentSeeder extends Seeder
                     'number' => $i,
                     'amount' => $purchase->amount / $installments_count,
                     'expiration_date' => $expiration_date,
-                    'payment_date' => $status === 'Pago' ? Carbon::parse($expiration_date)->subDays(rand(0, 7))->format('Y-m-d') : null,
+                    'payment_date' => $status === 'Paga' ? Carbon::parse($expiration_date)->subDays(rand(0, 7))->format('Y-m-d') : null,
                     'status' => $status,
                 ];
                 $purchase->installments()->create($installment);

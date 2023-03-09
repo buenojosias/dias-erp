@@ -21,7 +21,7 @@ class ClientFactory extends Factory
             'company_name' => $this->faker->company(),
             'fantasy_name' => $person_type === 'PJ' ? $this->faker->company() : null,
             'person_type' => $person_type,
-            'document_number' => $this->faker->randomNumber(),
+            'document_number' => $person_type === 'PJ' ? rand(00000000, 99999999).'0001'.rand(00, 99) : rand(00000000000, 99999999999),
         ];
     }
 }

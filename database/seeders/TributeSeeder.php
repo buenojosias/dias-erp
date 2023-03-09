@@ -13,6 +13,6 @@ class TributeSeeder extends Seeder
      */
     public function run(): void
     {
-        Tribute::factory(15)->hasInstallments(rand(1,6))->create();
+        Tribute::factory(15)->create();
     }
 }
