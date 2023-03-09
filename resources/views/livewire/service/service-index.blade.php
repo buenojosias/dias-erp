@@ -35,7 +35,7 @@
                             </td>
                             <td>{{ $service->start_date->format('d/m/Y') }}</td>
                             <td>{{ $service->end_date->format('d/m/Y') }}</td>
-                            <td>R$ {{ $service->amount / 100 }}</td>
+                            <td>R$ {{ $service->formated_amount }}</td>
                             <td>{{ $service->status }}</td>
                             <td width="1%">
                                 <div class="actions">

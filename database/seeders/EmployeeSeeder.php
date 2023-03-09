@@ -13,6 +13,6 @@ class EmployeeSeeder extends Seeder
      */
     public function run(): void
     {
-        Employee::factory(10)->hasAddress()->hasContact()->hasPayments(rand(1, 10))->create();
+        Employee::factory(10)->hasAddress()->hasContact()->hasPayments(rand(1, 3))->create();
     }
 }

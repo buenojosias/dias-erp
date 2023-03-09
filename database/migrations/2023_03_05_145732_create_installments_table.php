@@ -18,7 +18,7 @@ return new class extends Migration
             $table->integer('amount');
             $table->date('expiration_date');
             $table->date('payment_date')->nullable();
-            $table->enum('status', ['Pendente','Pago','Atrasado']);
+            $table->enum('status', ['Pendente','Paga','Atrasada']);
             $table->timestamps();
         });
     }

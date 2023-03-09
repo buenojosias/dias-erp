@@ -6,21 +6,23 @@
     <div class="relative flex-1 flex flex-col min-h-0 border-r border-gray-200 bg-white pt-0">
         <div class="flex-1 flex flex-col pt-5 pb-4 overflow-y-auto">
             <div class="flex-1 px-3 bg-white divide-y space-y-1">
-                <ul class="space-y-2 pb-2">
-                    <li>
-                        <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">Dashboard</x-nav-link>
-                        <x-nav-link :href="route('clients.index')" :active="request()->routeIs('clients.*')">Clientes</x-nav-link>
-                        <x-nav-link :href="route('suppliers.index')" :active="request()->routeIs('suppliers.*')">Fornecedores</x-nav-link>
-                        <x-nav-link :href="route('employees.index')" :active="request()->routeIs('employees.*')">Funcionários</x-nav-link>
-                        <x-nav-link :href="route('partners.index')" :active="request()->routeIs('partners.*')">Prestadores de serviços</x-nav-link>
-                    </li>
+                <ul class="space-y-1 py-1">
+                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">Dashboard</x-nav-link>
+                    <x-nav-link :href="route('clients.index')" :active="request()->routeIs('clients.*')">Clientes</x-nav-link>
+                    <x-nav-link :href="route('suppliers.index')" :active="request()->routeIs('suppliers.*')">Fornecedores</x-nav-link>
+                    <x-nav-link :href="route('employees.index')" :active="request()->routeIs('employees.*')">Funcionários</x-nav-link>
+                    <x-nav-link :href="route('partners.index')" :active="request()->routeIs('partners.*')">Prestadores de serviços</x-nav-link>
                 </ul>
-                <ul class="space-y-2 pb-2">
-                    <li>
-                        <x-nav-link :href="route('proposals.index')" :active="request()->routeIs('proposals.*')">Orçamentos</x-nav-link>
-                        <x-nav-link :href="route('services.index')" :active="request()->routeIs('services.*')">Obras</x-nav-link>
-                        <x-nav-link :href="route('purchase.index')" :active="request()->routeIs('purchase.*')">Compras</x-nav-link>
-                    </li>
+                <ul class="space-y-1 py-1">
+                    <x-nav-link :href="route('proposals.index')" :active="request()->routeIs('proposals.*')">Orçamentos</x-nav-link>
+                    <x-nav-link :href="route('services.index')" :active="request()->routeIs('services.*')">Obras</x-nav-link>
+                    <x-nav-link :href="route('purchases.index')" :active="request()->routeIs('purchases.*')">Compras</x-nav-link>
+                </ul>
+                <ul class="space-y-1 py-1">
+                    <x-nav-link :href="route('proposals.index')" :active="request()->routeIs('proposals.*')">Tributos</x-nav-link>
+                    <x-nav-link :href="route('proposals.index')" :active="request()->routeIs('proposals.*')">Parcelas pendentes</x-nav-link>
+                    <x-nav-link :href="route('proposals.index')" :active="request()->routeIs('proposals.*')">Recebimentos</x-nav-link>
+                    <x-nav-link :href="route('proposals.index')" :active="request()->routeIs('proposals.*')">Extrato financeiro</x-nav-link>
                 </ul>
             </div>
         </div>

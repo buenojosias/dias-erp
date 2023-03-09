@@ -43,7 +43,7 @@ main {
     @apply max-w-7xl mx-auto sm:px-6 lg:px-8 py-6;
 }
 .main-actions {
-    @apply mb-4 mx-4 sm:mx-0 text-right space-x-1;
+    @apply mb-4 mx-4 sm:mx-0 sm:flex flex-row-reverse items-end justify-between space-y-3 sm:space-y-0 sm:space-x-1;
 }
 .filters {
     @apply py-1 flex justify-between px-4 border border-b-0 bg-white sm:rounded-t-lg;

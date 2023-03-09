@@ -6,7 +6,7 @@ use App\Http\Livewire\Employee\{EmployeeIndex, EmployeeShow};
 use App\Http\Livewire\Partner\{PartnerIndex, PartnerShow};
 use App\Http\Livewire\Proposal\{ProposalIndex, ProposalShow};
 use App\Http\Livewire\Purchase\{PurchaseIndex, PurchaseShow};
-use App\Http\Livewire\Service\{ServiceIndex, ServiceShow};
+use App\Http\Livewire\Service\{ServiceIndex, ServiceShow, ServicePurchases, ServiceReceipts, ServicePayments, ServiceTributes};
 use App\Http\Livewire\Supplier\{SupplierIndex, SupplierShow};
 use Illuminate\Support\Facades\Route;
 
@@ -47,9 +47,13 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/obras', ServiceIndex::class)->name('services.index');
     Route::get('/obras/{service}', ServiceShow::class)->name('services.show');
+    Route::get('/obras/{service}/compras', ServicePurchases::class)->name('services.purchases');
+    Route::get('/obras/{service}/recebimentos', ServiceReceipts::class)->name('services.receipts');
+    Route::get('/obras/{service}/pagamentos', ServicePayments::class)->name('services.payments');
+    Route::get('/obras/{service}/tributos', ServiceTributes::class)->name('services.tributes');
 
-    Route::get('/compras', PurchaseIndex::class)->name('purchase.index');
-    Route::get('/compras/{purchase}', PurchaseShow::class)->name('purchase.show');
+    Route::get('/compras', PurchaseIndex::class)->name('purchases.index');
+    Route::get('/compras/{purchase}', PurchaseShow::class)->name('purchases.show');
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

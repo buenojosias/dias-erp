@@ -16,10 +16,11 @@ class PartnerFactory extends Factory
      */
     public function definition(): array
     {
+        $person_type = $this->faker->randomElement(['PF','PJ']);
         return [
             'company_name' => $this->faker->company(),
-            'fantasy_name' => $this->faker->company(),
-            'person_type' => $this->faker->randomElement(['PF','PJ']),
+            'fantasy_name' => $person_type === 'PJ' ? $this->faker->company() : null,
+            'person_type' => $person_type,
             'document_number' => $this->faker->randomNumber(),
         ];
     }

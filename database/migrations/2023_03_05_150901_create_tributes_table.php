@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('tributes', function (Blueprint $table) {
             $table->id();
+            $table->date('date');
             $table->foreignId('service_id')->nullable()->constrained();
             $table->foreignId('title_id')->constrained('tribute_titles');
             $table->integer('amount');

@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
             ReceiptSeeder::class,
             TributeTitleSeeder::class,
             TributeSeeder::class,
+            InstallmentSeeder::class,
         ]);
         // \App\Models\User::factory(10)->create();
 

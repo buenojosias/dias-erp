@@ -17,6 +17,7 @@ class TributeFactory extends Factory
     public function definition(): array
     {
         return [
+            'date' => $this->faker->dateTimeBetween("-30 days", "now"),
             'service_id' => rand(1, 5),
             'title_id' => rand(1, 5),
             'amount' => rand(1000, 50000),

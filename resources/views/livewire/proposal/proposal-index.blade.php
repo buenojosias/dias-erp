@@ -29,7 +29,7 @@
                             <td>
                                 <a href="{{ route('clients.show', $proposal->client) }}">{{ $proposal->client->company_name }}</a>
                             </td>
-                            <td>R$ {{ $proposal->amount / 100 }}</td>
+                            <td>R$ {{ $proposal->formated_amount }}</td>
                             <td>{{ $proposal->status }}</td>
                             <td width="1%">
                                 <div class="actions">

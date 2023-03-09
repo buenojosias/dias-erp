@@ -17,7 +17,7 @@
             </div>
             <div class="sm:col-span-2">
                 <h4>Valor</h4>
-                <h5>R$ {{ $proposal->amount / 100 }}</h5>
+                <h5>R$ {{ $proposal->formated_amount }}</h5>
             </div>
             <div>
                 <h4>Status</h4>

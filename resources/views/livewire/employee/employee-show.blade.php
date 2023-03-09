@@ -5,7 +5,7 @@
     <div class="main-actions">
         <x-primary-button>Novo pagamento</x-primary-button>
     </div>
-    <div class="card mb-6">
+    <div class="card mb-5">
         <div class="card-header">
             <h3 class="card-title">Informações do funcionário</h3>
         </div>
@@ -75,6 +75,7 @@
                     <tr>
                         <th class="text-left">Data</th>
                         <th class="text-left">Obra</th>
+                        <th class="text-left">Cliente</th>
                         <th class="text-left">Valor</th>
                         <th class="relative py-3.5 px-4">
                             <span class="sr-only">Ações</span>
@@ -94,7 +95,7 @@
                             <td>
                                 <a href="{{ route('clients.show', $payment->service->client) }}">{{ $payment->service->client->company_name }}</a>
                             </td>
-                            <td>R$ {{ $payment->amount / 100 }}</td>
+                            <td>R$ {{ $payment->formated_amount }}</td>
                             <td width="1%">
                                 <div class="actions">
                                     <button class="hover:text-red-500">

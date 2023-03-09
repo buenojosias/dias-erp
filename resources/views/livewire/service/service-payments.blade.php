@@ -1,46 +1,40 @@
 <div>
     <x-slot name="header">
-        <h2>Compras</h2>
+        <h2>Obra: {{ $service->contract_number }} / Pagamentos</h2>
     </x-slot>
     <div class="main-actions">
-        <x-primary-button>Nova compra</x-primary-button>
+        <x-primary-button>Novo pagamento</x-primary-button>
+        <div class="py-1.5 px-4 bg-white rounded-lg shadow border-b-2 border-red-800">
+            <h3 class="text-sm text-gray-600">Total pago</h3>
+            <p class="text-lg font-bold">R$ {{ $sum_payments }}</p>
+        </div>
     </div>
     <div class="card">
         <div class="card-header">
-            FILTROS
+            <h3 class="card-title">Compras realizadas</h3>
         </div>
         <div class="card-body table-responsive">
             <table class="table">
                 <thead>
                     <tr>
                         <th class="text-left">Data</th>
-                        <th class="text-left">Obra</th>
-                        <th class="text-left">Cliente</th>
-                        <th class="text-left">Fornecedor</th>
+                        <th class="text-left">Recebedor</th>
                         <th class="text-left">Valor</th>
-                        <th class="text-left">Meio de pagamento</th>
                         <th class="relative py-3.5 px-4">
                             <span class="sr-only">Ações</span>
                         </th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($purchases as $purchase)
+                    @foreach ($payments as $payment)
                         <tr>
                             <td>
-                                <a href="{{ route('purchases.show', $purchase) }}">{{ $purchase->date->format('d/m/Y') }}</a>
+                                <a href="#">{{ $payment->date->format('d/m/Y') }}</a>
                             </td>
                             <td>
-                                <a href="{{ route('services.show', $purchase->service) }}">{{ $purchase->service->contract_number }}</a>
+                                {{ $payment->paymentable->company_name ?? $payment->paymentable->name }}
                             </td>
-                            <td>
-                                <a href="{{ route('clients.show', $purchase->service->client) }}">{{ $purchase->service->client->company_name }}</a>
-                            </td>
-                            <td>
-                                {{ $purchase->supplier->company_name }}
-                            </td>
-                            <td>R$ {{ $purchase->formated_amount }}</td>
-                            <td>{{ $purchase->payment_method }}</td>
+                            <td>R$ {{ $payment->formated_amount }}</td>
                             <td width="1%">
                                 <div class="actions">
                                     <button class="hover:text-red-500">
@@ -63,9 +57,6 @@
                     @endforeach
                 </tbody>
             </table>
-        </div>
-        <div class="card-pagination">
-            {{ $purchases->links() }}
         </div>
     </div>
 </div>

@@ -6,7 +6,7 @@
         <x-primary-button>Nova obra</x-primary-button>
         <x-primary-button>Novo orçamento</x-primary-button>
     </div>
-    <div class="card mb-6">
+    <div class="card mb-5">
         <div class="card-header">
             <h3 class="card-title">Informações do cliente</h3>
         </div>
@@ -57,7 +57,7 @@
             </div>
         </div>
     </div>
-    <div class="card mb-6">
+    <div class="card mb-5">
         <div class="card-header">
             <h3 class="card-title">Obras</h3>
         </div>
@@ -83,7 +83,7 @@
                             </td>
                             <td>{{ $service->start_date->format('d/m/Y') }}</td>
                             <td>{{ $service->end_date->format('d/m/Y') }}</td>
-                            <td>R$ {{ $service->amount / 100 }}</td>
+                            <td>R$ {{ $service->formated_amount }}</td>
                             <td>{{ $service->status }}</td>
                             <td width="1%">
                                 <div class="actions">
@@ -129,9 +129,9 @@
                     @foreach ($proposals as $proposal)
                         <tr>
                             <td>
-                                <a href="#">{{ $proposal->date->format('d/m/Y') }}</a>
+                                <a href="{{ route('proposals.show', $proposal)}}">{{ $proposal->date->format('d/m/Y') }}</a>
                             </td>
-                            <td>R$ {{ $proposal->amount / 100 }}</td>
+                            <td>R$ {{ $proposal->formated_amount }}</td>
                             <td>{{ $proposal->status }}</td>
                             <td width="1%">
                                 <div class="actions">
