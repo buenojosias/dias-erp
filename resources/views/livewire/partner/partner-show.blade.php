@@ -6,7 +6,7 @@
         <x-alert label="{{ session('success') }}" flag="success" />
     @endif
     <div class="main-actions">
-        <x-primary-button>Novo pagamento</x-primary-button>
+        <x-button wire:click="openPaymentModal" label="Registrar pagamento" primary />
     </div>
     <div class="card mb-5">
         <div class="card-header">
@@ -121,4 +121,9 @@
             {{ $payments->links() }}
         </div>
     </div>
+    @if ($paymentModal)
+        <x-modal wire:model.defer="paymentModal">
+            @livewire('payment.payment-form', ['model' => $partner])
+        </x-modal>
+    @endif
 </div>

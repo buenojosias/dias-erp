@@ -5,9 +5,6 @@
     @if (session('success'))
         <x-alert label="{{ session('success') }}" flag="success" />
     @endif
-    <div class="main-actions">
-        <x-primary-button>Nova compra</x-primary-button>
-    </div>
     <div class="card mb-5">
         <div class="card-header">
             <h3 class="card-title">Informações do fornecedor</h3>
