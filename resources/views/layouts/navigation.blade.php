@@ -21,7 +21,6 @@
                 <ul class="space-y-1 py-1">
                     <x-nav-link :href="route('tributes.index')" :active="request()->routeIs('tributes.*')">Tributos</x-nav-link>
                     <x-nav-link :href="route('installments.index')" :active="request()->routeIs('installments.*')">Parcelas pendentes</x-nav-link>
-                    <x-nav-link :href="route('proposals.index')" :active="request()->routeIs('proposals.*')">Extrato financeiro</x-nav-link>
                 </ul>
             </div>
         </div>

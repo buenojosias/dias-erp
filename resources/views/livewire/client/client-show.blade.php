@@ -2,6 +2,9 @@
     <x-slot name="header">
         <h2>Cliente: {{ $client->company_name }}</h2>
     </x-slot>
+    @if (session('success'))
+        <x-alert label="{{ session('success') }}" flag="success" />
+    @endif
     <div class="main-actions">
         <x-primary-button>Nova obra</x-primary-button>
         <x-primary-button>Novo orçamento</x-primary-button>
@@ -129,7 +132,8 @@
                     @foreach ($proposals as $proposal)
                         <tr>
                             <td>
-                                <a href="{{ route('proposals.show', $proposal)}}">{{ $proposal->date->format('d/m/Y') }}</a>
+                                <a
+                                    href="{{ route('proposals.show', $proposal) }}">{{ $proposal->date->format('d/m/Y') }}</a>
                             </td>
                             <td>R$ {{ $proposal->formated_amount }}</td>
                             <td>{{ $proposal->status }}</td>

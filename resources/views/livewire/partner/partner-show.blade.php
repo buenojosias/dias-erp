@@ -2,6 +2,9 @@
     <x-slot name="header">
         <h2>Prestador de serviços: {{ $partner->company_name }}</h2>
     </x-slot>
+    @if (session('success'))
+        <x-alert label="{{ session('success') }}" flag="success" />
+    @endif
     <div class="main-actions">
         <x-primary-button>Novo pagamento</x-primary-button>
     </div>
@@ -38,10 +41,12 @@
                 <h4>Cidade/UF</h4>
                 <h5>{{ $address->city }}/{{ $address->state }}</h5>
             </div>
-            <div class="sm:col-span-3">
-                <h4>Representante</h4>
-                <h5>{{ $contact->representative }}</h5>
-            </div>
+            @if ($partner->person_type === 'PJ')
+                <div class="sm:col-span-3">
+                    <h4>Representante</h4>
+                    <h5>{{ $contact->representative }}</h5>
+                </div>
+            @endif
             <div class="sm:col-span-2">
                 <h4>Telefone</h4>
                 <h5>{{ $contact->phone }}</h5>
@@ -81,10 +86,12 @@
                                 {{-- <a href="{{ route('payments.show', $payment) }}">{{ $payment->date->format('d/m/Y') }}</a> --}}
                             </td>
                             <td>
-                                <a href="{{ route('services.show', $payment->service) }}">{{ $payment->service->contract_number }}</a>
+                                <a
+                                    href="{{ route('services.show', $payment->service) }}">{{ $payment->service->contract_number }}</a>
                             </td>
                             <td>
-                                <a href="{{ route('clients.show', $payment->service->client) }}">{{ $payment->service->client->company_name }}</a>
+                                <a
+                                    href="{{ route('clients.show', $payment->service->client) }}">{{ $payment->service->client->company_name }}</a>
                             </td>
                             <td>R$ {{ $payment->formated_amount }}</td>
                             <td width="1%">

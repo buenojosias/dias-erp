@@ -16,5 +16,9 @@ module.exports = {
         },
     },
 
+    presets: [
+        require('./vendor/wireui/wireui/tailwind.config.js'),
+    ],
+
     plugins: [require('@tailwindcss/forms')],
 };

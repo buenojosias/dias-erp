@@ -1,14 +1,14 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
-use App\Http\Livewire\Client\{ClientIndex, ClientShow};
-use App\Http\Livewire\Employee\{EmployeeIndex, EmployeeShow};
+use App\Http\Livewire\Client\{ClientIndex, ClientShow, ClientForm};
+use App\Http\Livewire\Employee\{EmployeeIndex, EmployeeShow, EmployeeForm};
 use App\Http\Livewire\Installment\{InstallmentIndex};
-use App\Http\Livewire\Partner\{PartnerIndex, PartnerShow};
+use App\Http\Livewire\Partner\{PartnerIndex, PartnerShow, PartnerForm};
 use App\Http\Livewire\Proposal\{ProposalIndex, ProposalShow};
 use App\Http\Livewire\Purchase\{PurchaseIndex, PurchaseShow};
 use App\Http\Livewire\Service\{ServiceIndex, ServiceShow, ServicePurchases, ServiceReceipts, ServicePayments, ServiceTributes};
-use App\Http\Livewire\Supplier\{SupplierIndex, SupplierShow};
+use App\Http\Livewire\Supplier\{SupplierIndex, SupplierShow, SupplierForm};
 use App\Http\Livewire\Tribute\{TributeIndex, TributeShow};
 use Illuminate\Support\Facades\Route;
 
@@ -33,16 +33,24 @@ Route::get('/', function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('/clientes', ClientIndex::class)->name('clients.index');
+    Route::get('/clientes/novo', ClientForm::class)->name('clients.create');
     Route::get('/clientes/{client}', ClientShow::class)->name('clients.show');
+    Route::get('/clientes/{client}/editar', ClientForm::class)->name('clients.edit');
 
     Route::get('/fornecedores', SupplierIndex::class)->name('suppliers.index');
+    Route::get('/fornecedores/novo', SupplierForm::class)->name('suppliers.create');
     Route::get('/fornecedores/{supplier}', SupplierShow::class)->name('suppliers.show');
+    Route::get('/fornecedores/{supplier}/editar', SupplierForm::class)->name('suppliers.edit');
 
     Route::get('/funcionarios', EmployeeIndex::class)->name('employees.index');
+    Route::get('/funcionarios/novo', EmployeeForm::class)->name('employees.create');
     Route::get('/funcionarios/{employee}', EmployeeShow::class)->name('employees.show');
+    Route::get('/funcionarios/{employee}/editar', EmployeeForm::class)->name('employees.edit');
 
     Route::get('/prestadores', PartnerIndex::class)->name('partners.index');
+    Route::get('/prestadores/novo', PartnerForm::class)->name('partners.create');
     Route::get('/prestadores/{partner}', PartnerShow::class)->name('partners.show');
+    Route::get('/prestadores/{partner}/editar', PartnerForm::class)->name('partners.edit');
 
     Route::get('/propostas', ProposalIndex::class)->name('proposals.index');
     Route::get('/propostas/{proposal}', ProposalShow::class)->name('proposals.show');

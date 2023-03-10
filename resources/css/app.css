@@ -79,6 +79,9 @@ main {
 .card-header p, .form-card .card-header p {
     @apply mt-1 text-sm text-gray-600;
 }
+/* .card.no-header .card-body {
+    @apply rounded-t-lg;
+} */
 .card-body.display {
     @apply p-4 grid sm:grid-cols-6 gap-4;
 }
@@ -87,6 +90,9 @@ main {
 }
 .card-body.display h5 {
     @apply font-medium text-gray-900;
+}
+.card-body.form {
+    @apply p-4 grid gap-4;
 }
 
 .table {
@@ -126,4 +132,37 @@ table td .actions {
 }
 .card-list a {
     @apply hover:bg-gray-100;
+}
+.alert {
+    @apply mb-5 flex w-full overflow-hidden bg-white rounded-lg shadow-md;
+}
+.alert > .alert-icon {
+    @apply flex items-center justify-center w-12 text-white;
+}
+.alert > .alert-content {
+    @apply px-4 py-1.5 -mx-3;
+}
+.alert > .alert-content span {
+    @apply font-semibold;
+}
+.alert > .alert-content p {
+    @apply text-sm text-gray-600;
+}
+.alert.success > .alert-icon {
+    @apply bg-emerald-500;
+}
+.alert.info > .alert-icon {
+    @apply bg-blue-500;
+}
+.alert.error > .alert-icon {
+    @apply bg-red-500;
+}
+.alert.success > .alert-content span {
+    @apply text-emerald-500;
+}
+.alert.info > .alert-content span {
+    @apply text-blue-500;
+}
+.alert.error > .alert-content span {
+    @apply text-red-500;
 }

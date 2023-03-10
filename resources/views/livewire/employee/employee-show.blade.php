@@ -2,6 +2,9 @@
     <x-slot name="header">
         <h2>Funcionários: {{ $employee->name }}</h2>
     </x-slot>
+    @if (session('success'))
+        <x-alert label="{{ session('success') }}" flag="success" />
+    @endif
     <div class="main-actions">
         <x-primary-button>Novo pagamento</x-primary-button>
     </div>
@@ -19,7 +22,7 @@
                 <h5>{{ $employee->role }}</h5>
             </div>
             <div>
-                <h4>Data de nascimento</h4>
+                <h4>Nascimento</h4>
                 <h5>{{ $employee->birthday->format('d/m/Y') }}</h5>
             </div>
             <div class="sm:col-span-2">
@@ -46,10 +49,6 @@
             <div class="sm:col-span-2">
                 <h4>Cidade/UF</h4>
                 <h5>{{ $address->city }}/{{ $address->state }}</h5>
-            </div>
-            <div class="sm:col-span-3">
-                <h4>Representante</h4>
-                <h5>{{ $contact->representative }}</h5>
             </div>
             <div class="sm:col-span-2">
                 <h4>Telefone</h4>

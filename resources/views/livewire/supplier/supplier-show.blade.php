@@ -2,6 +2,9 @@
     <x-slot name="header">
         <h2>Fornecedor: {{ $supplier->company_name }}</h2>
     </x-slot>
+    @if (session('success'))
+        <x-alert label="{{ session('success') }}" flag="success" />
+    @endif
     <div class="main-actions">
         <x-primary-button>Nova compra</x-primary-button>
     </div>
