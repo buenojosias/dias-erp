@@ -7,7 +7,7 @@
     </div>
     <div class="card">
         <div class="card-header">
-            filtros
+
         </div>
         <div class="card-body table-responsive">
             <table class="table">

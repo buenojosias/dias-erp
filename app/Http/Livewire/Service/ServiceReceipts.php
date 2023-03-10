@@ -10,16 +10,31 @@ class ServiceReceipts extends Component
     public $service;
     public $receipts;
     public $sum_receipts;
+    public $receiptModal;
+
+    protected $listeners = [
+        'savedReceipt',
+    ];
 
     public function mount(Service $service)
     {
         $this->service = $service;
-        $this->receipts = $service->receipts;
-        $this->sum_receipts = number_format($this->receipts->sum('amount')/100,2,",",".");
+    }
+
+    public function openReceiptModal()
+    {
+        $this->receiptModal = true;
+    }
+
+    public function savedReceipt($receipt)
+    {
+        session()->flash('success', 'Recebimento registrado com sucesso.');
+        $this->receiptModal = false;
     }
 
     public function render()
     {
+        $this->receipts = $this->service->receipts()->orderBy('date', 'desc')->get();
         return view('livewire.service.service-receipts');
     }
 }

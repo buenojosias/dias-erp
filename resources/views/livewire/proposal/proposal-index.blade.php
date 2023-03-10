@@ -6,7 +6,9 @@
         <x-button href="{{ route('proposals.create') }}" primary label="Novo orçamento" />
     </div>
     <div class="card">
-        <div class="card-header">filtros</div>
+        <div class="card-header">
+
+        </div>
         <div class="card-body table-responsive">
             <table class="table">
                 <thead>
