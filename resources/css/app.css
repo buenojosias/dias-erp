@@ -92,7 +92,7 @@ main {
     @apply font-medium text-gray-900;
 }
 .card-body.form {
-    @apply p-4 grid gap-4;
+    @apply p-4 sm:grid gap-4 sm:space-y-0 space-y-4;
 }
 
 .table {

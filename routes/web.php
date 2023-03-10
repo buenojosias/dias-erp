@@ -5,9 +5,9 @@ use App\Http\Livewire\Client\{ClientIndex, ClientShow, ClientForm};
 use App\Http\Livewire\Employee\{EmployeeIndex, EmployeeShow, EmployeeForm};
 use App\Http\Livewire\Installment\{InstallmentIndex};
 use App\Http\Livewire\Partner\{PartnerIndex, PartnerShow, PartnerForm};
-use App\Http\Livewire\Proposal\{ProposalIndex, ProposalShow};
+use App\Http\Livewire\Proposal\{ProposalIndex, ProposalShow, ProposalForm};
 use App\Http\Livewire\Purchase\{PurchaseIndex, PurchaseShow};
-use App\Http\Livewire\Service\{ServiceIndex, ServiceShow, ServicePurchases, ServiceReceipts, ServicePayments, ServiceTributes};
+use App\Http\Livewire\Service\{ServiceIndex, ServiceShow, ServiceForm, ServicePurchases, ServiceReceipts, ServicePayments, ServiceTributes};
 use App\Http\Livewire\Supplier\{SupplierIndex, SupplierShow, SupplierForm};
 use App\Http\Livewire\Tribute\{TributeIndex, TributeShow};
 use Illuminate\Support\Facades\Route;
@@ -52,11 +52,15 @@ Route::middleware('auth')->group(function () {
     Route::get('/prestadores/{partner}', PartnerShow::class)->name('partners.show');
     Route::get('/prestadores/{partner}/editar', PartnerForm::class)->name('partners.edit');
 
-    Route::get('/propostas', ProposalIndex::class)->name('proposals.index');
-    Route::get('/propostas/{proposal}', ProposalShow::class)->name('proposals.show');
+    Route::get('/orcamentos', ProposalIndex::class)->name('proposals.index');
+    Route::get('/orcamentos/novo', ProposalForm::class)->name('proposals.create');
+    Route::get('/orcamentos/{proposal}', ProposalShow::class)->name('proposals.show');
+    Route::get('/orcamentos/{proposal}/editar', ProposalForm::class)->name('proposals.edit');
 
     Route::get('/obras', ServiceIndex::class)->name('services.index');
+    Route::get('/obras/nova', ServiceForm::class)->name('services.create');
     Route::get('/obras/{service}', ServiceShow::class)->name('services.show');
+    Route::get('/obras/{service}/editar', ServiceForm::class)->name('services.edit');
     Route::get('/obras/{service}/compras', ServicePurchases::class)->name('services.purchases');
     Route::get('/obras/{service}/recebimentos', ServiceReceipts::class)->name('services.receipts');
     Route::get('/obras/{service}/pagamentos', ServicePayments::class)->name('services.payments');

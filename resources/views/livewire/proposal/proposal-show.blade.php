@@ -2,6 +2,9 @@
     <x-slot name="header">
         <h2>Detalhes do orçamento</h2>
     </x-slot>
+    @if (session('success'))
+        <x-alert label="{{ session('success') }}" flag="success" />
+    @endif
     <div class="card mb-6">
         <div class="card-header">
             <h3 class="card-title">Informações do orçamento</h3>

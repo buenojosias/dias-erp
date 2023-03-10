@@ -2,6 +2,9 @@
     <x-slot name="header">
         <h2>Obra: {{ $service->contract_number }}</h2>
     </x-slot>
+    @if (session('success'))
+        <x-alert label="{{ session('success') }}" flag="success" />
+    @endif
     <div class="card mb-5">
         <div class="card-header">
             <h3 class="card-title">Informações da obra</h3>
