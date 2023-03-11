@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('purchase_id')->constrained();
             $table->integer('number');
             $table->integer('amount');
-            $table->date('expiration_date');
+            $table->date('expiration_date')->nullable();
             $table->date('payment_date')->nullable();
             $table->enum('status', ['Pendente','Paga','Atrasada']);
             $table->timestamps();

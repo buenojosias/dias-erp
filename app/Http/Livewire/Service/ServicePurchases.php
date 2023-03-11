@@ -15,7 +15,7 @@ class ServicePurchases extends Component
     {
         $this->service = $service;
         $this->purchases = $service->purchases()->with('supplier')->get();
-        $this->sum_purchases = number_format($this->purchases->sum('amount')/100,2,",",".");
+        // $this->sum_purchases = number_format($this->purchases->sum('amount')/100,2,",",".");
     }
 
     public function render()

@@ -26,9 +26,7 @@
                 <tbody>
                     @foreach ($receipts as $receipt)
                         <tr>
-                            <td>
-                                <a href="#">{{ $receipt->date->format('d/m/Y') }}</a>
-                            </td>
+                            <td>{{ $receipt->date->format('d/m/Y') }}</td>
                             <td>R$ {{ $receipt->formated_amount }}</td>
                             <td width="1%">
                                 <div class="actions">

@@ -12,6 +12,7 @@ class TributeIndex extends Component
         $tributes = Tribute::query()
             ->with(['service.client','title'])
             ->withCount('installments')
+            ->orderByDesc('date')
             ->paginate(10);
 
         return view('livewire.tribute.tribute-index', compact(['tributes']));

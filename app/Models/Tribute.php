@@ -16,6 +16,7 @@ class Tribute extends Model
     protected $fillable = [
         'service_id',
         'title_id',
+        'date',
         'amount',
         'note',
     ];

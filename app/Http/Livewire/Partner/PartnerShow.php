@@ -36,7 +36,7 @@ class PartnerShow extends Component
 
     public function render()
     {
-        $payments = $this->partner->payments()->with('service')->paginate();
+        $payments = $this->partner->payments()->with('service')->orderByDesc('date')->paginate();
         return view('livewire.partner.partner-show', compact(['payments']));
     }
 }

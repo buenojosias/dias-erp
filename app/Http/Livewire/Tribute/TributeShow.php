@@ -17,7 +17,7 @@ class TributeShow extends Component
         $this->tribute = $tribute;
         $this->service = $tribute->service()->with('client')->first();
         $this->title = $tribute->title;
-        $this->installments = $tribute->installments;
+        $this->installments = $tribute->installments()->orderBy('expiration_date', 'asc')->get();
     }
 
     public function render()

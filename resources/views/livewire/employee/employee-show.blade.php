@@ -85,7 +85,7 @@
                     @foreach ($payments as $payment)
                         <tr>
                             <td>
-                                <a href="#">{{ $payment->date->format('d/m/Y') }}</a>
+                                {{ $payment->date->format('d/m/Y') }}
                                 {{-- <a href="{{ route('payments.show', $payment) }}">{{ $payment->date->format('d/m/Y') }}</a> --}}
                             </td>
                             <td>

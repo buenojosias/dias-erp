@@ -2,12 +2,14 @@
     <x-slot name="header">
         <h2>Obra: {{ $service->contract_number }} / Tributos</h2>
     </x-slot>
+    @if (session('success'))
+        <x-alert label="{{ session('success') }}" flag="success" />
+    @endif
+    @if (session('error'))
+        <x-alert label="{{ session('error') }}" flag="error" />
+    @endif
     <div class="main-actions">
-        <x-primary-button>Novo tributo</x-primary-button>
-        <div class="py-1.5 px-4 bg-white rounded-lg shadow border-b-2 border-red-800">
-            <h3 class="text-sm text-gray-600">Total em tributos</h3>
-            <p class="text-lg font-bold">R$ {{ $sum_tributes }}</p>
-        </div>
+        <x-button wire:click="openTributeModal" label="Novo tributo" primary />
     </div>
     <div class="card">
         <div class="card-header">
@@ -30,7 +32,8 @@
                     @foreach ($tributes as $tribute)
                         <tr>
                             <td>
-                                <a href="#">{{ $tribute->date->format('d/m/Y') }}</a>
+                                <a
+                                    href="{{ route('tributes.show', $tribute) }}">{{ $tribute->date->format('d/m/Y') }}</a>
                             </td>
                             <td> {{ $tribute->title->title }} </td>
                             <td>R$ {{ $tribute->formated_amount }}</td>
@@ -59,4 +62,44 @@
             </table>
         </div>
     </div>
+    @if ($tributeModal)
+        <x-modal wire:model.defer="tributeModal" max-width="sm">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Lançar tributo</h3>
+                </div>
+                <x-errors class="mb-4" />
+                <form wire:submit.prevent="submit">
+                    <div class="card-body form grid-cols-2">
+                        <div class="col-span-2">
+                            <x-native-select label="Tributo" wire:model="form.title_id" required>
+                                <option value="">Selecione</option>
+                                @foreach ($titles as $title)
+                                    <option value="{{ $title->id }}">{{ $title->title }} ({{ $title->type }})
+                                    </option>
+                                @endforeach
+                            </x-native-select>
+                        </div>
+                        <div>
+                            <x-datetime-picker label="Data de emissão" wire:model.defer="form.date" without-time
+                                required />
+                        </div>
+                        <div>
+                            <x-inputs.currency label="Valor" prefix="R$ " thousands="." decimal=","
+                                wire:model.defer="form.amount" required />
+                        </div>
+                        <div>
+                            <x-input type="number" label="Parcelas" wire:model.defer="form.installments_count" min="1" required />
+                        </div>
+                        <div class="col-span-2">
+                            <x-textarea wire:model.defer="form.note" label="Observação" rows="2" />
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <x-button type="submit" label="Salvar" primary />
+                    </div>
+                </form>
+            </div>
+        </x-modal>
+    @endif
 </div>

@@ -36,7 +36,7 @@ class EmployeeShow extends Component
 
     public function render()
     {
-        $payments = $this->employee->payments()->with('service')->paginate();
+        $payments = $this->employee->payments()->with('service')->orderByDesc('date')->paginate();
         return view('livewire.employee.employee-show', compact(['payments']));
     }
 }

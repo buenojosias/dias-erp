@@ -34,7 +34,7 @@ class ServiceReceipts extends Component
 
     public function render()
     {
-        $this->receipts = $this->service->receipts()->orderBy('date', 'desc')->get();
+        $this->receipts = $this->service->receipts()->orderByDesc('date')->get();
         return view('livewire.service.service-receipts');
     }
 }

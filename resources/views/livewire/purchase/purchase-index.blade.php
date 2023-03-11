@@ -3,7 +3,7 @@
         <h2>Compras</h2>
     </x-slot>
     <div class="main-actions">
-        <x-primary-button>Nova compra</x-primary-button>
+        <x-button href="{{ route('purchases.create') }}" primary label="Nova compra" />
     </div>
     <div class="card">
         <div class="card-header">

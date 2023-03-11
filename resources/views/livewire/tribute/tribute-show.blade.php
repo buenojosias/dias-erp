@@ -52,7 +52,7 @@
                 <tbody>
                     @foreach ($installments as $installment)
                         <tr>
-                            <td>{{ $installment->expiration_date->format('d/m/Y') }}</td>
+                            <td>{{ $installment->expiration_date ? $installment->expiration_date->format('d/m/Y') : 'Não informado' }}</td>
                             <td>R$ {{ $installment->formated_amount }}</td>
                             <td>{{ $installment->payment_date ? $installment->payment_date->format('d/m/Y') : '' }}
                             </td>

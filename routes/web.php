@@ -6,7 +6,7 @@ use App\Http\Livewire\Employee\{EmployeeIndex, EmployeeShow, EmployeeForm};
 use App\Http\Livewire\Installment\{InstallmentIndex};
 use App\Http\Livewire\Partner\{PartnerIndex, PartnerShow, PartnerForm};
 use App\Http\Livewire\Proposal\{ProposalIndex, ProposalShow, ProposalForm};
-use App\Http\Livewire\Purchase\{PurchaseIndex, PurchaseShow};
+use App\Http\Livewire\Purchase\{PurchaseIndex, PurchaseShow, PurchaseForm};
 use App\Http\Livewire\Service\{ServiceIndex, ServiceShow, ServiceForm, ServicePurchases, ServiceReceipts, ServicePayments, ServiceTributes};
 use App\Http\Livewire\Supplier\{SupplierIndex, SupplierShow, SupplierForm};
 use App\Http\Livewire\Tribute\{TributeIndex, TributeShow};
@@ -67,7 +67,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/obras/{service}/tributos', ServiceTributes::class)->name('services.tributes');
 
     Route::get('/compras', PurchaseIndex::class)->name('purchases.index');
+    Route::get('/compras/nova', PurchaseForm::class)->name('purchases.create');
     Route::get('/compras/{purchase}', PurchaseShow::class)->name('purchases.show');
+    Route::get('/compras/{purchase}/editar', PurchaseForm::class)->name('purchases.edit');
 
     Route::get('/tributos', TributeIndex::class)->name('tributes.index');
     Route::get('/tributos/{tribute}', TributeShow::class)->name('tributes.show');

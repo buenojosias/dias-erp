@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('tribute_id')->constrained();
             $table->integer('amount');
-            $table->date('expiration_date');
+            $table->date('expiration_date')->nullable();
             $table->date('payment_date')->nullable();
             $table->enum('status', ['Pendente','Pago','Atrasado']);
             $table->timestamps();
