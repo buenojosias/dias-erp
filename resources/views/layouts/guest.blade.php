@@ -7,7 +7,7 @@
         <title>{{ config('app.name', 'Laravel') }}</title>
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-        <link rel="stylesheet" href="{{ asset('build/assets/app-a75bd708.css') }}">
+        <link rel="stylesheet" href="{{ asset('build/assets/app-70a8abd5.css') }}">
         <script src="{{ asset('build/assets/app-9f34e40c.js') }}" defer></script>
         {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
     </head>
