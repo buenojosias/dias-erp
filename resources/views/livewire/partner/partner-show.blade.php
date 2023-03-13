@@ -13,6 +13,10 @@
             <h3 class="card-title">Informações do prestador de serviços</h3>
         </div>
         <div class="card-body display">
+            <div>
+                <h4>{{ $partner->person_type === 'PF' ? 'CPF' : 'CNPJ' }}</h4>
+                <h5>{{ $partner->formated_document_number }}</h5>
+            </div>
             <div class="sm:col-span-3">
                 <h4>{{ $partner->person_type === 'PF' ? 'Nome' : 'Razão social' }}</h4>
                 <h5>{{ $partner->company_name }}</h5>
@@ -20,10 +24,6 @@
             <div class="sm:col-span-2">
                 <h4>{{ $partner->person_type === 'PJ' ? 'Nome fantasia' : '' }}</h4>
                 <h5>{{ $partner->fantasy_name }}</h5>
-            </div>
-            <div>
-                <h4>{{ $partner->person_type === 'PF' ? 'CPF' : 'CNPJ' }}</h4>
-                <h5>{{ $partner->document_number }}</h5>
             </div>
             <div class="sm:col-span-3">
                 <h4>Endereço</h4>

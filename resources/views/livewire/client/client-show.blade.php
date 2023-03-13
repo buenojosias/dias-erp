@@ -10,6 +10,10 @@
             <h3 class="card-title">Informações do cliente</h3>
         </div>
         <div class="card-body display">
+            <div>
+                <h4>{{ $client->person_type === 'PF' ? 'CPF' : 'CNPJ' }}</h4>
+                <h5>{{ $client->formated_document_number }}</h5>
+            </div>
             <div class="sm:col-span-3">
                 <h4>{{ $client->person_type === 'PF' ? 'Nome' : 'Razão social' }}</h4>
                 <h5>{{ $client->company_name }}</h5>
@@ -17,10 +21,6 @@
             <div class="sm:col-span-2">
                 <h4>{{ $client->person_type === 'PJ' ? 'Nome fantasia' : '' }}</h4>
                 <h5>{{ $client->fantasy_name }}</h5>
-            </div>
-            <div>
-                <h4>{{ $client->person_type === 'PF' ? 'CPF' : 'CNPJ' }}</h4>
-                <h5>{{ $client->document_number }}</h5>
             </div>
             <div class="sm:col-span-3">
                 <h4>Endereço</h4>

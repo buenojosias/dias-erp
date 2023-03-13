@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
@@ -36,5 +37,12 @@ class Employee extends Model
     public function payments(): MorphMany
     {
         return $this->MorphMany(Payment::class, 'paymentable');
+    }
+
+    protected function formatedCpf(): Attribute
+    {
+        return Attribute::make(
+            get: fn() => substr($this->cpf, 0, 3) . '.' . substr($this->cpf, 3, 3) . '.' . substr($this->cpf, 6, 3) . '-' . substr($this->cpf, 9)
+        );
     }
 }

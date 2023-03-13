@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
@@ -31,5 +32,13 @@ class Partner extends Model
     public function payments(): MorphMany
     {
         return $this->MorphMany(Payment::class, 'paymentable');
+    }
+    protected function formatedDocumentNumber(): Attribute
+    {
+        return Attribute::make(
+            get: fn() => strlen($this->document_number) == 11
+                ? substr($this->document_number, 0, 3) . '.' . substr($this->document_number, 3, 3) . '.' . substr($this->document_number, 6, 3) . '-' . substr($this->document_number, 9)
+                : substr($this->document_number, 0, 2) . '.' . substr($this->document_number, 2, 3) . '.' . substr($this->document_number, 5, 3) . '/' . substr($this->document_number, 8, 4) . '-' . substr($this->document_number, -2),
+        );
     }
 }

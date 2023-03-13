@@ -10,6 +10,10 @@
             <h3 class="card-title">Informações do fornecedor</h3>
         </div>
         <div class="card-body display">
+            <div>
+                <h4>CNPJ</h4>
+                <h5>{{ $supplier->formated_cnpj }}</h5>
+            </div>
             <div class="sm:col-span-3">
                 <h4>Razão social</h4>
                 <h5>{{ $supplier->company_name }}</h5>
@@ -17,10 +21,6 @@
             <div class="sm:col-span-2">
                 <h4>Nome fantasia</h4>
                 <h5>{{ $supplier->fantasy_name }}</h5>
-            </div>
-            <div>
-                <h4>CNPJ</h4>
-                <h5>{{ $supplier->cnpj }}</h5>
             </div>
             <div class="sm:col-span-2">
                 <h4>Endereço</h4>

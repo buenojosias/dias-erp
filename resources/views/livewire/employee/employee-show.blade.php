@@ -31,7 +31,7 @@
             </div>
             <div class="sm:col-span-2">
                 <h4>CPF</h4>
-                <h5>{{ $employee->cpf }}</h5>
+                <h5>{{ $employee->formated_cpf }}</h5>
             </div>
             <div class="sm:col-span-2 hidden sm:block"></div>
             <div class="sm:col-span-2">
