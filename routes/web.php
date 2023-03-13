@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Livewire\Client\{ClientIndex, ClientShow, ClientForm};
 use App\Http\Livewire\Employee\{EmployeeIndex, EmployeeShow, EmployeeForm};
@@ -27,9 +28,7 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get('/', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/', DashboardController::class)->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/clientes', ClientIndex::class)->name('clients.index');

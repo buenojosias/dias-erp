@@ -166,3 +166,28 @@ table td .actions {
 .alert.error > .alert-content span {
     @apply text-red-500;
 }
+
+.infobox-wrapper {
+    @apply mb-4 grid sm:grid-cols-2 md:grid-cols-3 gap-3;
+}
+.infobox {
+    @apply relative border-b-4 border-slate-700 rounded-lg bg-white shadow;
+}
+.infobox > .inner {
+    @apply px-2 py-3;
+}
+.infobox > .inner > h3 {
+    @apply text-3xl font-semibold;
+}
+.infobox > .inner > p {
+    @apply text-sm font-semibold text-gray-700;
+}
+.infobox > .icon {
+    @apply absolute right-4 top-4 opacity-30;
+}
+.infobox > .icon i {
+    @apply transition duration-150 ease-in-out text-6xl;
+}
+.infobox > .footer {
+    @apply block p-1 text-center rounded-b text-sm;
+}

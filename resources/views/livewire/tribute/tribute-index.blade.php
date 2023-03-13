@@ -2,9 +2,6 @@
     <x-slot name="header">
         <h2>Tributos</h2>
     </x-slot>
-    <div class="main-actions">
-        <x-primary-button>Novo lançamento</x-primary-button>
-    </div>
     <div class="card">
         <div class="card-header">
 
