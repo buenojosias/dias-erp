@@ -60,10 +60,11 @@
                 <div class="col-span-2">
                     <x-inputs.maskable wire:model.defer="whatsapp" label="WhatsApp" mask="['(##) ####-####', '(##) #####-####']" emitFormatted="true" />
                 </div>
-
+                @if ($person_type === 'PJ')
                 <div class="col-span-2">
-                    <x-input wire:model.defer="representative" label="Representante" />
+                    <x-input wire:model.defer="representative" label="Representante" required />
                 </div>
+                @endif
                 <div class="col-span-2">
                     <x-input type="email" wire:model.defer="email" label="E-mail" />
                 </div>

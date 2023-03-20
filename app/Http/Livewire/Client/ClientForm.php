@@ -61,7 +61,7 @@ class ClientForm extends Component
             'state' => 'required|string|min:2|max:2',
         ]);
         $validateContact = $this->validate([
-            'representative' => 'required_if:person_type,PJ|string|max:100',
+            'representative' => 'nullable|required_if:person_type,PJ|string|max:100',
             'phone' => 'nullable|string|min:14|max:15',
             'whatsapp' => 'nullable|string|min:14|max:15',
             'email' => 'nullable|email',

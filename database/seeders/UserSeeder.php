@@ -23,7 +23,7 @@ class UserSeeder extends Seeder
         ]);
         User::create([
             'name' => 'Cleoni Anjos',
-            'email' => 'cleonidiasanjos',
+            'email' => 'cleonidiasanjos@gmail.com',
             'password' => bcrypt('rpdm009'),
             'email_verified_at' => now(),
             'remember_token' => Str::random(10),
