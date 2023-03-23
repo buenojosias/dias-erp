@@ -8,8 +8,10 @@ use App\Http\Livewire\Installment\{InstallmentIndex};
 use App\Http\Livewire\Partner\{PartnerIndex, PartnerShow, PartnerForm};
 use App\Http\Livewire\Proposal\{ProposalIndex, ProposalShow, ProposalForm};
 use App\Http\Livewire\Purchase\{PurchaseIndex, PurchaseShow, PurchaseForm};
-use App\Http\Livewire\Service\{ServiceIndex, ServiceShow, ServiceForm, ServicePurchases, ServiceReceipts, ServicePayments, ServiceTributes};
+use App\Http\Livewire\Rent\{RentIndex, RentShow, RentForm};
+use App\Http\Livewire\Service\{ServiceIndex, ServiceShow, ServiceForm, ServicePurchases, ServiceRents, ServiceReceipts, ServicePayments, ServiceTributes};
 use App\Http\Livewire\Supplier\{SupplierIndex, SupplierShow, SupplierForm};
+use App\Http\Livewire\Renter\{RenterIndex, RenterShow, RenterForm};
 use App\Http\Livewire\Tribute\{TributeIndex, TributeShow};
 use Illuminate\Support\Facades\Route;
 
@@ -51,6 +53,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/prestadores/{partner}', PartnerShow::class)->name('partners.show');
     Route::get('/prestadores/{partner}/editar', PartnerForm::class)->name('partners.edit');
 
+    Route::get('/locatarios', RenterIndex::class)->name('renters.index');
+    Route::get('/locatarios/novo', RenterForm::class)->name('renters.create');
+    Route::get('/locatarios/{renter}', RenterShow::class)->name('renters.show');
+    Route::get('/locatarios/{renter}/editar', RenterForm::class)->name('renters.edit');
+
     Route::get('/orcamentos', ProposalIndex::class)->name('proposals.index');
     Route::get('/orcamentos/novo', ProposalForm::class)->name('proposals.create');
     Route::get('/orcamentos/{proposal}', ProposalShow::class)->name('proposals.show');
@@ -61,6 +68,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/obras/{service}', ServiceShow::class)->name('services.show');
     Route::get('/obras/{service}/editar', ServiceForm::class)->name('services.edit');
     Route::get('/obras/{service}/compras', ServicePurchases::class)->name('services.purchases');
+    Route::get('/obras/{service}/locacoes', ServiceRents::class)->name('services.rents');
     Route::get('/obras/{service}/recebimentos', ServiceReceipts::class)->name('services.receipts');
     Route::get('/obras/{service}/pagamentos', ServicePayments::class)->name('services.payments');
     Route::get('/obras/{service}/tributos', ServiceTributes::class)->name('services.tributes');
@@ -69,6 +77,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/compras/nova', PurchaseForm::class)->name('purchases.create');
     Route::get('/compras/{purchase}', PurchaseShow::class)->name('purchases.show');
     Route::get('/compras/{purchase}/editar', PurchaseForm::class)->name('purchases.edit');
+
+    Route::get('/locacoes', RentIndex::class)->name('rents.index');
+    Route::get('/locacoes/nova', RentForm::class)->name('rents.create');
+    Route::get('/locacoes/{rent}', RentShow::class)->name('rents.show');
+    Route::get('/locacoes/{rent}/editar', RentForm::class)->name('rents.edit');
 
     Route::get('/tributos', TributeIndex::class)->name('tributes.index');
     Route::get('/tributos/{tribute}', TributeShow::class)->name('tributes.show');

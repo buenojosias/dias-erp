@@ -51,6 +51,11 @@ class Service extends Model
         return $this->hasMany(Purchase::class);
     }
 
+    public function rents(): HasMany
+    {
+        return $this->hasMany(Rent::class);
+    }
+
     public function tributes(): HasMany
     {
         return $this->hasMany(Tribute::class);

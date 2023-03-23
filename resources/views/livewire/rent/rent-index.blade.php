@@ -1,0 +1,55 @@
+<div>
+    <x-slot name="header">
+        <h2>Locações</h2>
+    </x-slot>
+    <div class="main-actions">
+        <x-button href="{{ route('rents.create') }}" primary label="Nova locação" />
+    </div>
+    <div class="card">
+        <div class="card-header">
+        </div>
+        <div class="card-body table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th class="text-left">Data</th>
+                        <th class="text-left">Obra</th>
+                        <th class="text-left">Cliente</th>
+                        <th class="text-left">Locador</th>
+                        <th class="text-left">Valor</th>
+                        <th class="relative py-3.5 px-4">
+                            <span class="sr-only">Ações</span>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($rents as $rent)
+                        <tr>
+                            <td>
+                                <a href="{{ route('rents.show', $rent) }}">{{ $rent->date->format('d/m/Y') }}</a>
+                            </td>
+                            <td>
+                                <a href="{{ route('services.show', $rent->service) }}">{{ $rent->service->contract_number }}</a>
+                            </td>
+                            <td>
+                                <a href="{{ route('clients.show', $rent->service->client) }}">{{ $rent->service->client->company_name }}</a>
+                            </td>
+                            <td>
+                                {{ $rent->renter->company_name }}
+                            </td>
+                            <td>R$ {{ $rent->formated_amount }}</td>
+                            <td width="1%">
+                                <div class="actions">
+                                    <x-button href="{{ route('rents.edit', $rent) }}" flat icon="pencil" class="-my-2" />
+                                </div>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+        <div class="card-pagination">
+            {{ $rents->links() }}
+        </div>
+    </div>
+</div>

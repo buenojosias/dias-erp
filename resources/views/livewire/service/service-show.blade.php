@@ -66,6 +66,10 @@
                     <div>Compras efetuadas</div>
                     <div class="text-right">R$ {{ number_format($purchases/100,2,",",".") }}</div>
                 </a>
+                <a href="{{ route('services.rents', $service) }}">
+                    <div>Locações</div>
+                    <div class="text-right">R$ {{ number_format($rents/100,2,",",".") }}</div>
+                </a>
                 <a href="{{ route('services.payments', $service) }}">
                     <div>Pagamentos realizados</div>
                     <div class="text-right">R$ {{ number_format($payments/100,2,",",".") }}</div>

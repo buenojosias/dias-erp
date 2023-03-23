@@ -1,9 +1,9 @@
 <div>
     <x-slot name="header">
-        <h2>Fornecedores</h2>
+        <h2>Locadores</h2>
     </x-slot>
     <div class="main-actions">
-        <x-button href="{{ route('suppliers.create') }}" primary label="Novo fornecedor" />
+        <x-button href="{{ route('renters.create') }}" primary label="Novo locador" />
     </div>
     <div class="card">
         <div class="card-header">
@@ -20,15 +20,15 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($suppliers as $supplier)
+                    @foreach ($renters as $renter)
                         <tr>
                             <td>
-                                <a href="{{ route('suppliers.show', $supplier) }}">{{ $supplier->company_name }}</a>
+                                <a href="{{ route('renters.show', $renter) }}">{{ $renter->company_name }}</a>
                             </td>
-                            <td>{{ $supplier->contact->whatsapp ?? $supplier->contact->phone }}</td>
+                            <td>{{ $renter->contact->whatsapp ?? $renter->contact->phone }}</td>
                             <td width="1%">
                                 <div class="actions">
-                                    <x-button href="{{ route('suppliers.edit', $supplier) }}" flat icon="pencil" class="-my-2" />
+                                    <x-button href="{{ route('renters.edit', $renter) }}" flat icon="pencil" class="-my-2" />
                                 </div>
                             </td>
                         </tr>
@@ -37,7 +37,7 @@
             </table>
         </div>
         <div class="card-pagination">
-            {{ $suppliers->links() }}
+            {{ $renters->links() }}
         </div>
     </div>
 </div>

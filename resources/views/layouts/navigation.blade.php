@@ -9,14 +9,16 @@
                 <ul class="space-y-1 py-1">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">Dashboard</x-nav-link>
                     <x-nav-link :href="route('clients.index')" :active="request()->routeIs('clients.*')">Clientes</x-nav-link>
-                    <x-nav-link :href="route('suppliers.index')" :active="request()->routeIs('suppliers.*')">Fornecedores</x-nav-link>
                     <x-nav-link :href="route('employees.index')" :active="request()->routeIs('employees.*')">Funcionários</x-nav-link>
                     <x-nav-link :href="route('partners.index')" :active="request()->routeIs('partners.*')">Prestadores de serviços</x-nav-link>
+                    <x-nav-link :href="route('suppliers.index')" :active="request()->routeIs('suppliers.*')">Fornecedores</x-nav-link>
+                    <x-nav-link :href="route('renters.index')" :active="request()->routeIs('renters.*')">Locadores</x-nav-link>
                 </ul>
                 <ul class="space-y-1 py-1">
                     <x-nav-link :href="route('proposals.index')" :active="request()->routeIs('proposals.*')">Orçamentos</x-nav-link>
                     <x-nav-link :href="route('services.index')" :active="request()->routeIs('services.*')">Obras</x-nav-link>
                     <x-nav-link :href="route('purchases.index')" :active="request()->routeIs('purchases.*')">Compras</x-nav-link>
+                    <x-nav-link :href="route('rents.index')" :active="request()->routeIs('rents.*')">Locações</x-nav-link>
                 </ul>
                 <ul class="space-y-1 py-1">
                     <x-nav-link :href="route('tributes.index')" :active="request()->routeIs('tributes.*')">Tributos</x-nav-link>
