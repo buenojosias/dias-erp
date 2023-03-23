@@ -28,7 +28,7 @@
                         class="flex mr-3 text-sm bg-gray-100 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600 px-2 py-0.5"
                         data-dropdown-placement="bottom">
                         <span class="sr-only">Open user menu</span>
-                        <i class="fa fa-user text-xl text-slate-800"></i>
+                        <x-icon name="user" class="w-5 h-7" solid />
                     </button>
                     <div x-show="usermenu" @click.outside="usermenu = false"
                         class="absolute right-0 z-10 mt-2 w-48 origin-top-right text-base list-none bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">

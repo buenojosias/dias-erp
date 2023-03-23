@@ -12,7 +12,7 @@ use App\Http\Livewire\Rent\{RentIndex, RentShow, RentForm};
 use App\Http\Livewire\Service\{ServiceIndex, ServiceShow, ServiceForm, ServicePurchases, ServiceRents, ServiceReceipts, ServicePayments, ServiceTributes};
 use App\Http\Livewire\Supplier\{SupplierIndex, SupplierShow, SupplierForm};
 use App\Http\Livewire\Renter\{RenterIndex, RenterShow, RenterForm};
-use App\Http\Livewire\Tribute\{TributeIndex, TributeShow};
+use App\Http\Livewire\Tribute\{TributeIndex, TributeShow, TributeForm};
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -84,7 +84,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/locacoes/{rent}/editar', RentForm::class)->name('rents.edit');
 
     Route::get('/tributos', TributeIndex::class)->name('tributes.index');
+    Route::get('/tributos/novo', TributeForm::class)->name('tributes.create');
     Route::get('/tributos/{tribute}', TributeShow::class)->name('tributes.show');
+    Route::get('/tributos/{tribute}/editar', TributeForm::class)->name('tributes.edit');
 
     Route::get('/parcelamentos', InstallmentIndex::class)->name('installments.index');
 

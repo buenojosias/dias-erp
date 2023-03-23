@@ -2,9 +2,11 @@
     <x-slot name="header">
         <h2>Tributos</h2>
     </x-slot>
+    <div class="main-actions">
+        <x-button href="{{ route('tributes.create') }}" primary label="Novo lançamento" />
+    </div>
     <div class="card">
         <div class="card-header">
-
         </div>
         <div class="card-body table-responsive">
             <table class="table">
