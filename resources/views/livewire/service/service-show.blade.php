@@ -58,10 +58,6 @@
                     <div>Valor contratado</div>
                     <div class="text-right">R$ {{ $service->formated_amount }}</div>
                 </li>
-                <a href="{{ route('services.receipts', $service) }}">
-                    <div>Valores recebidos</div>
-                    <div class="text-right">R$ {{ number_format($receipts/100,2,",",".") }}</div>
-                </a>
                 <a href="{{ route('services.purchases', $service) }}">
                     <div>Compras efetuadas</div>
                     <div class="text-right">R$ {{ number_format($purchases/100,2,",",".") }}</div>
@@ -79,6 +75,14 @@
                     <div class="text-right">R$ {{ number_format($tributes/100,2,",",".") }}</div>
                 </a>
                 <li class="font-semibold">
+                    <div>Total de despesas</div>
+                    <div class="text-right">R$ {{ number_format($expenses/100,2,",",".") }}</div>
+                </li>
+                <a href="{{ route('services.receipts', $service) }}" class="font-semibold">
+                    <div>Valores recebidos</div>
+                    <div class="text-right">R$ {{ number_format($receipts/100,2,",",".") }}</div>
+                </a>
+                <li>
                     <div>Lucro líquido previsto</div>
                     <div class="text-right">R$ {{ number_format($prevProfit/100,2,",",".") }}</div>
                 </li>

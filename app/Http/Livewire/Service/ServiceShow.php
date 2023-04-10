@@ -13,6 +13,7 @@ class ServiceShow extends Component
     public $rents;
     public $payments;
     public $tributes;
+    public $expenses;
     public $prevProfit;
     public $realProfit;
 
@@ -25,6 +26,8 @@ class ServiceShow extends Component
         $this->rents = $service->rents()->sum('amount');
         $this->payments = $service->payments()->sum('amount');
         $this->tributes = $service->tributes()->sum('amount');
+
+        $this->expenses = $this->purchases + $this->rents + $this->payments + $this->tributes;
         $this->prevProfit = $this->service->amount - $this->purchases - $this->rents - $this->payments - $this->tributes;
         $this->realProfit = $this->receipts - $this->purchases - $this->rents - $this->payments - $this->tributes;
     }
