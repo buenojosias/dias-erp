@@ -81,7 +81,7 @@
                                 <a href="{{ route('services.show', $service) }}">{{ $service->contract_number }}</a>
                             </td>
                             <td>{{ $service->start_date->format('d/m/Y') }}</td>
-                            <td>{{ $service->end_date->format('d/m/Y') }}</td>
+                            <td>{{ $service->end_date ? $service->end_date->format('d/m/Y') : '' }}</td>
                             <td>R$ {{ $service->formated_amount }}</td>
                             <td>{{ $service->status }}</td>
                             <td width="1%">

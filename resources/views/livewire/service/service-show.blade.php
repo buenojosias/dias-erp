@@ -28,7 +28,7 @@
             </div>
             <div class="sm:col-span-2">
                 <h4>Prazo para conclusão</h4>
-                <h5>{{ $service->end_date->format('d/m/Y') }}</h5>
+                <h5>{{ $service->end_date ? $service->end_date->format('d/m/Y') : '' }}</h5>
             </div>
             <div class="sm:col-span-2">
                 <h4>Situação</h4>
