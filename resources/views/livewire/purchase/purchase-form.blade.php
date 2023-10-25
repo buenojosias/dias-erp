@@ -13,12 +13,14 @@
                     <x-datetime-picker label="Data" wire:model.defer="date" :max="now()" without-time required />
                 </div>
                 <div class="col-span-2">
-                    <x-native-select label="Fornecedor" wire:model.defer="supplier_id" required>
+                    <x-select label="Fornecedor" wire:model.defer="supplier_id" placeholder="Buscar fornecedor"
+                        :async-data="route('api.suppliers')" option-label="fantasy_name" option-value="id" />
+                    {{-- <x-native-select label="Fornecedor" wire:model.defer="supplier_id" required>
                         <option value="">Selecione</option>
                         @foreach ($suppliers as $supplier)
                             <option value="{{ $supplier->id }}">{{ $supplier->fantasy_name }}</option>
                         @endforeach
-                    </x-native-select>
+                    </x-native-select> --}}
                 </div>
                 <div class="col-span-3">
                     <x-native-select label="Obra" wire:model.defer="service_id" required>
