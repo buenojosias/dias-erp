@@ -1,4 +1,5 @@
 <div>
+    <x-dialog />
     <x-slot name="header">
         <h2>Obra: {{ $service->contract_number }} / Recebimentos</h2>
     </x-slot>
@@ -30,6 +31,8 @@
                             <td>R$ {{ $receipt->formated_amount }}</td>
                             <td width="1%">
                                 <div class="actions">
+                                    <x-button icon="pencil" flat xs wire:click="openReceiptModal({{ $receipt }})" />
+                                    <x-button icon="trash" flat xs wire:click="delete({{ $receipt->id }})" />
                                 </div>
                             </td>
                         </tr>
@@ -39,8 +42,8 @@
         </div>
     </div>
     @if ($receiptModal)
-        <x-modal wire:model.defer="receiptModal">
-            @livewire('receipt.receipt-form', ['service' => $service])
+        <x-modal wire:model.defer="receiptModal" x-on:close="$wire.closingModal">
+            @livewire('receipt.receipt-form', ['service' => $service, 'sgl_receipt' => $sgl_receipt])
         </x-modal>
     @endif
 </div>

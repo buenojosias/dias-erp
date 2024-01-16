@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Receipt;
 
+use App\Models\Receipt;
 use Livewire\Component;
 
 class ReceiptForm extends Component
@@ -9,9 +10,17 @@ class ReceiptForm extends Component
     public $service;
     public $receipt, $date, $amount, $note;
 
-    public function mount($service) {
+    public function mount($service, $sgl_receipt = null)
+    {
         $this->service = $service;
-        $this->date = date('Y-m-d');
+        if ($sgl_receipt) {
+            $this->receipt = $sgl_receipt;
+            $this->date = $this->receipt['date'];
+            $this->amount = $this->receipt['amount'] / 100;
+            $this->note = $this->receipt['note'];
+        } else {
+            $this->date = date('Y-m-d');
+        }
     }
 
     public function submit()
@@ -23,12 +32,16 @@ class ReceiptForm extends Component
         ]);
         $validate['amount'] = intval($this->amount * 100);
 
-        try {
-            $payment = $this->service->receipts()->create($validate);
-            $this->emit('savedReceipt', $payment);
-        } catch (\Throwable $th) {
-            dd($th);
+        if($this->receipt) {
+            $receipt = $this->receipt;
+            Receipt::query()->findOrFail($this->receipt['id'])->update($validate);
+            $this->reset();
+        } else {
+            $receipt = $this->service->receipts()->create($validate);
+            $this->reset();
         }
+        $this->emit('savedReceipt', $receipt);
+
     }
 
     public function render()
