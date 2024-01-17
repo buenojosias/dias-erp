@@ -8,7 +8,7 @@
                 <x-native-select wire:model.defer="service_id" label="Obra/Cliente" required>
                     <option value="">Selecione</option>
                     @foreach ($services as $service)
-                        <option value="{{ $service->id }}">{{ $service->title }} ({{ $service->client->company_name }})
+                        <option value="{{ $service->id }}">{{ $service->contract_number }} - {{ $service->id }} - {{ $service->title }} ({{ $service->client->company_name }})
                         </option>
                     @endforeach
                 </x-native-select>

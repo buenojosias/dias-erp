@@ -12,6 +12,7 @@
                     <tr>
                         <th class="text-left">Data</th>
                         <th class="text-left">Recebedor</th>
+                        <th class="text-left">Vínculo</th>
                         <th class="text-left">Valor</th>
                         <th class="relative py-3.5 px-4">
                             <span class="sr-only">Ações</span>
@@ -25,7 +26,16 @@
                                 <a href="#">{{ $payment->date->format('d/m/Y') }}</a>
                             </td>
                             <td>
+                                @if ($payment->paymentable_type === 'App\Models\Employee')
+                                    <a href="{{ route('employees.show', $payment->paymentable) }}">
+                                @else
+                                    <a href="{{ route('partners.show', $payment->paymentable) }}">
+                                @endif
                                 {{ $payment->paymentable->company_name ?? $payment->paymentable->name }}
+                                </a>
+                            </td>
+                            <td>
+                                {{ $payment->paymentable_type === 'App\Models\Employee' ? 'Funcionário(a)' : 'Prestador de serviços' }}
                             </td>
                             <td>R$ {{ $payment->formated_amount }}</td>
                             <td width="1%">
