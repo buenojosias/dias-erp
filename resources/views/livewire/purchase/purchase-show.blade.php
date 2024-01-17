@@ -52,6 +52,9 @@
                 <p class="text-sm">{{ $purchase->note }}</p>
             </div>
         </div>
+        <div class="card-footer">
+            <x-button href="{{ route('purchases.edit', $purchase) }}" icon="pencil" label="Editar" flat />
+        </div>
     </div>
     @if ($purchase->payment_method === 'Parcelado')
         <div class="card">

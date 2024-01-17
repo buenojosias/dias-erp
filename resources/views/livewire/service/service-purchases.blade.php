@@ -32,6 +32,7 @@
                             <td>{{ $purchase->payment_method }}</td>
                             <td width="1%">
                                 <div class="actions">
+                                    <x-button href="{{ route('purchases.edit', $purchase) }}" icon="pencil" sm flat />
                                 </div>
                             </td>
                         </tr>
